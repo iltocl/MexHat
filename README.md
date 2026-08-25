@@ -95,11 +95,16 @@ Audio features were obtained by using the [vggish](https://v-iashin.github.io/vi
 
 ### Temporal Dimension Processing
 We used a *Long Short Term Memory (LSTM)* network, followed by an *AdaptiveAvgPool1d layer* and a *Linear fully connected (FC) layer* to standardize temporal dimension $n$ to $n = 50$ for all modalities and video clips.
+A demo example is available at ```temp_dim_processing.ipynb```
+
+
 
 ## MexHat 
 
 The MexHat pkl file is available at: 
 
++ **three-way class**: []()
++ **fine-grained class**: []() 
 
 ```
 key: train
@@ -107,24 +112,18 @@ key: train
   └── sub_key: audio
   └── sub_key: text
   └── sub_key: labels # three-way class
-  └── sub_key: labels_hs # fine-grained class
-  └── sub_key: labels_bin # these labels were not used for evaluation yet
   └── sub_key: id
 key: valid
   └── sub_key: vision
   └── sub_key: audio
   └── sub_key: text
   └── sub_key: labels # three-way class
-  └── sub_key: labels_hs # fine-grained class
-  └── sub_key: labels_bin # these labels were not used for evaluation yet
   └── sub_key: id
 key: test
   └── sub_key: vision
   └── sub_key: audio
   └── sub_key: text
   └── sub_key: labels # three-way class
-  └── sub_key: labels_hs # fine-grained class
-  └── sub_key: labels_bin # these labels were not used for evaluation yet
   └── sub_key: id
 ```
 
