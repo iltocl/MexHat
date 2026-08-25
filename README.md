@@ -8,9 +8,11 @@ We release MexHat, a video dataset designed to capture the linguistic and cultur
 *Disclaimer: This dataset contains sensitive content that may be disturbing to some people.*
 
 ## Table of Contents
-´´´
 
-´´´
+[Data Collection](#data-collection)
+[Annotation](#annotation)
+[Extracted Features](#extracted-features)
+
 
 ## Data Collection
 
