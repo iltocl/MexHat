@@ -12,8 +12,8 @@ We release MexHat, a video dataset designed to capture the linguistic and cultur
 + [Data Collection](#data-collection)
 + [Annotation](#annotation)
   + [Instance Examples](#instance-examples)
-+ [MexHat](#mexhat)
 + [Extracted Features](#extracted-features)
++ [MexHat](#mexhat)
 + [Paper cite](#paper-cite)
 
 ## Data Collection
@@ -66,9 +66,40 @@ G-Dragon por su lado trabajó de cerca con Chanel hasta convertirse en embajador
 
 *transcription*: Hola soy Bob y junto a mis dos asistentes Charlie y Bert me dedico a construir, restaurar y reparar todo tipo de cosas. Es un trabajo arduo pero alguien tiene que hacerlo. Bob el constructor El día de hoy vino un cliente con la intención de que remodeláramos su casa, ya la vi y el resultado puedo decirles va a quedar fenomenal, es de los casos más sencillos que hemos tenido y gracias a mi equipo de trabajo podremos terminarlo en unos dos o tres días. El día de hoy vine con mi amigo Bob a que chequee mi casa porque quiere unas remodelaciones, la verdad confío mucho en su trabajo, es el mejor. Mi casa necesita remodelaciones, está muy mal la verdad, mira. ¡Guau! Es la casa más culera que he visto. Sí está bien culera. Ni los marranos podrían vivir ahí. ¿Cómo vives en esa posible? Hasta el color es horrible, ¿quién la pintó? ¿un ciego? ¿Quién era Shrek? ¿Pasó un huracán ahí? Shrek vive en un pantano y vive mejor que tú. Me parece que eres re pobre, si tienes para pagar las remodelaciones. Pero bueno, ¿qué dicen chicos? ¿podemos hacerlo?
 
+## Extracted Features
+
+For each video scene **T**ext, **V**ideo and **A**udio modality features were extracted. 
+
+### Raw Video Scenes
+The raw video scenes can be requested through itlelo@inaoep.mx 
+
+### Text
+To obtain text modality features, audio was transcribed from the video using [whisper](https://github.com/openai/whisper.git) *(model=“medium”)*. 
+Then, transcribed text was processed with [BETO](https://huggingface.co/dccuchile/bert-base-spanish-wwm-uncased) encoder.
+
++ The $.txt$ files from the text transcriptions are available at: [txt_text_whisper.zip](https://drive.google.com/file/d/1_6DVvBRiGVrB4jFdR0R89oKNPDkPIiJU/view?usp=sharing)
++ The $numpy$ files from BETO embeddings are available at: [npy_text_beto.zip](https://drive.google.com/file/d/1g77ZwpbS8trlLPs8yO4JOqED_T1cGLu3/view?usp=sharing)
++ Each video instance corresponds to a $n \times 768$ dimension.
+
+### Video
+For the video modality, [I3D](https://v-iashin.github.io/video_features/models/i3d/) representations for flow and rgb were obtained. 
+
++ The $numpy$ files from video features are available at: [npy_video_i3d.zip](https://drive.google.com/file/d/1ueoIKUdbNP3Wczbhfjo856qVdL_UbscB/view?usp=sharing)
++ Each video instance corresponds to a $n \times 1024$ dimension for flow files and $n \times 1024$ dimension for rgb files.
+
+### Audio
+Audio features were obtained by using the [vggish](https://v-iashin.github.io/video_features/models/vggish/) pretrained model.
+
++ The $numpy$ files from audio features are available at: [npy_audio_vggish.zip](https://drive.google.com/file/d/1QLyFDEjkrrv0OJB8_4OoLLgtXBKxZILq/view?usp=sharing)
++ Each video instance corresponds to a $n \times 128$ dimension.
+
+### Temporal Dimension Processing
+We used a *Long Short Term Memory (LSTM)* network, followed by an *AdaptiveAvgPool1d layer* and a *Linear fully connected (FC) layer* to standardize temporal dimension $n$ to $n = 50$ for all modalities and video clips.
+
 ## MexHat 
 
-The MexHat pkl file is available: [mexhat.pkl](https://drive.google.com/file/d/1gk_B1_2mlQWI94fqFplYC1nTaOGukjES/view?usp=drive_link). The data format corresponds to:
+The MexHat pkl file is available at: 
+
 
 ```
 key: train
@@ -98,25 +129,6 @@ key: test
 ```
 
 
-## Extracted Features
-
-For each video scene **T**ext, **V**ideo and **A**udio modality features were extracted. 
-
-### Raw Video Scenes
-We provide the raw video scenes
-
-### Text
-To obtain text modality features, audio was transcribed from the video using [whisper](https://github.com/openai/whisper.git) *(model=“medium”)*. 
-Then, transcribed text was processed with [BETO](https://huggingface.co/dccuchile/bert-base-spanish-wwm-uncased) encoder.
-
-### Video
-For the video modality, [I3D](https://v-iashin.github.io/video_features/models/i3d/) representations for flow and rgb were obtained. 
-
-### Audio
-Audio features were obtained by using the [vggish](https://v-iashin.github.io/video_features/models/vggish/) pretrained model.
-
-### Temporal Dimension Processing
-We used a Long Short Term Memory (LSTM) network, followed by an AdaptiveAvgPool1d layer and a Linear fully connected (FC) layer to standardize temporal dimension n to $n = 50$ for all modalities and video clips.
 
 # Paper cite
 ´´´
