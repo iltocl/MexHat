@@ -103,27 +103,27 @@ A demo example is available at ```temp_dim_processing.ipynb```
 
 The MexHat pkl file is available at: 
 
-+ **three-way class**: []()
-+ **fine-grained class**: []() 
++ **three-way class**: [mexhat_labels.pkl](https://drive.google.com/file/d/18Gcuq_qSLXoEhnASXdzVtld6vC4I_chU/view?usp=sharing)
++ **fine-grained class**: [mexhat_labels_hs](https://drive.google.com/file/d/1Y8Moga6j3GdgboXo9aRxZH-7YdteS1k6/view?usp=sharing) 
 
 ```
 key: train
   └── sub_key: vision
   └── sub_key: audio
   └── sub_key: text
-  └── sub_key: labels # three-way class
+  └── sub_key: labels # three-way class or fine-grained classes depending of the pkl file
   └── sub_key: id
 key: valid
   └── sub_key: vision
   └── sub_key: audio
   └── sub_key: text
-  └── sub_key: labels # three-way class
+  └── sub_key: labels # three-way class or fine-grained classes depending of the pkl file
   └── sub_key: id
 key: test
   └── sub_key: vision
   └── sub_key: audio
   └── sub_key: text
-  └── sub_key: labels # three-way class
+  └── sub_key: labels # three-way class or fine-grained classes depending of the pkl file
   └── sub_key: id
 ```
 
