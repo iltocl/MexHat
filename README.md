@@ -1,4 +1,4 @@
-# MexHat: A Dataset for Hate Speech Detection in Mexican Spanish Videos
+#  MexHat: A Dataset for Hate Speech Detection in Mexican Spanish Videos
 
 We release MexHat, a video dataset designed to capture the linguistic and cultural cues for the hate-speech detection task in a Mexican Spanish context. Our dataset comprises around 1k video clips annotated across two tasks: 
 
