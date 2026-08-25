@@ -14,8 +14,20 @@ We release MexHat, a video dataset designed to capture the linguistic and cultur
 
 ## Dataset Details
 
+### Data Collection
 
-### Statistics
+The videos were filtered and retrieved from the YouTube platform. Three ways of filtering were applied:
+
+1. using hate-speech related words
+2. using relevant identified videos as seeds to retrieve similar content
+3. identifying playlists of channels with possible hate-speech content
+
+Code available at [https://github.com/iltocl/dcc-hsdvmi-video-dataset](https://github.com/iltocl/dcc-hsdvmi-video-dataset)
+
+### Annotation
+
+The proposed partitions for the MexHat dataset are shown below:
+
 | Partition | Total | NN | OF | HS | hs1 | hs2 | hs3 |
 |-----------|-------|----|----|----|-----|-----|-----|
 | test  | 278 | 116 | 123 | 39 | 6 | 15 | 18 |
@@ -34,7 +46,9 @@ Hate-speech sub classes
 - hs2: sexism, LGBTQ+
 - hs3: others
 
-### Examples
+#### Instance Examples
+
+
 
 ### Extracted Features
 #### Text
