@@ -64,29 +64,32 @@ G-Dragon por su lado trabajó de cerca con Chanel hasta convertirse en embajador
 
 ## Extracted Features
 
-For each video scene **T**ext, **V**ideo and **A**udio modality features were extracted.
+For each video scene **T**ext, **V**ideo and **A**udio modality features were extracted. 
+
+
 
 #### Raw Video Scenes
 We provide the raw video scenes
 
 ### Text
+To obtain text modality features, audio was transcribed from the video using whisper6 (model=“medium”). Then, transcribed text was processed
+
 Whisper transcriptions
 BETO embeddings
 
 ### Video
 
 rgb + flow 
+For the video modality, I3D representations for flow (nv ×1024) and rgb
+(nv ×1024) were obtained from each video clip [3]. 
 
 ### Audio
 VGGish
 
+Finally, Audio features were
+obtained by using the vggish pretrained model [9] corresponding with na × 128
+representations per video clip.
+
 # Paper cite
 ´´´
-@misc{mexhat2026,
-  author = {},
-  title = {MexHat: A Video Dataset for Hate Speech Detection},
-  year = {2026},
-  howpublished = {},
-  note = {}
-}   
 ´´´
