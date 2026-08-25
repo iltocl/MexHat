@@ -70,9 +70,6 @@ G-Dragon por su lado trabajó de cerca con Chanel hasta convertirse en embajador
 
 For each video scene **T**ext, **V**ideo and **A**udio modality features were extracted. 
 
-### Raw Video Scenes
-The raw video scenes can be requested through itlelo@inaoep.mx 
-
 ### Text
 To obtain text modality features, audio was transcribed from the video using [whisper](https://github.com/openai/whisper.git) *(model=“medium”)*. 
 Then, transcribed text was processed with [BETO](https://huggingface.co/dccuchile/bert-base-spanish-wwm-uncased) encoder.
@@ -104,7 +101,7 @@ A demo example is available at ```temp_dim_processing.ipynb```
 The MexHat pkl file is available at: 
 
 + **three-way class**: [mexhat_labels.pkl](https://drive.google.com/file/d/18Gcuq_qSLXoEhnASXdzVtld6vC4I_chU/view?usp=sharing)
-+ **fine-grained class**: [mexhat_labels_hs](https://drive.google.com/file/d/1Y8Moga6j3GdgboXo9aRxZH-7YdteS1k6/view?usp=sharing) 
++ **fine-grained class**: [mexhat_labels_hs.pkl](https://drive.google.com/file/d/1Y8Moga6j3GdgboXo9aRxZH-7YdteS1k6/view?usp=sharing) 
 
 ```
 key: train
@@ -127,9 +124,9 @@ key: test
   └── sub_key: id
 ```
 
-
-
 # Paper cite
 ´´´
-
+.bib
 ´´´
+
+**Contact:** itlelo@inaoep.mx
