@@ -9,10 +9,12 @@ We release MexHat, a video dataset designed to capture the linguistic and cultur
 
 ## Table of Contents
 
-[Data Collection](#data-collection)
-[Annotation](#annotation)
-[Extracted Features](#extracted-features)
-
++ [Data Collection](#data-collection)
++ [Annotation](#annotation)
+  + [Instance Examples](#instance-examples)
++ [MexHat](#mexhat)
++ [Extracted Features](#extracted-features)
++ [Paper cite](#paper-cite)
 
 ## Data Collection
 
@@ -64,34 +66,59 @@ G-Dragon por su lado trabajó de cerca con Chanel hasta convertirse en embajador
 
 *transcription*: Hola soy Bob y junto a mis dos asistentes Charlie y Bert me dedico a construir, restaurar y reparar todo tipo de cosas. Es un trabajo arduo pero alguien tiene que hacerlo. Bob el constructor El día de hoy vino un cliente con la intención de que remodeláramos su casa, ya la vi y el resultado puedo decirles va a quedar fenomenal, es de los casos más sencillos que hemos tenido y gracias a mi equipo de trabajo podremos terminarlo en unos dos o tres días. El día de hoy vine con mi amigo Bob a que chequee mi casa porque quiere unas remodelaciones, la verdad confío mucho en su trabajo, es el mejor. Mi casa necesita remodelaciones, está muy mal la verdad, mira. ¡Guau! Es la casa más culera que he visto. Sí está bien culera. Ni los marranos podrían vivir ahí. ¿Cómo vives en esa posible? Hasta el color es horrible, ¿quién la pintó? ¿un ciego? ¿Quién era Shrek? ¿Pasó un huracán ahí? Shrek vive en un pantano y vive mejor que tú. Me parece que eres re pobre, si tienes para pagar las remodelaciones. Pero bueno, ¿qué dicen chicos? ¿podemos hacerlo?
 
+## MexHat 
+
+The MexHat pkl file is available: [mexhat.pkl](https://drive.google.com/file/d/1gk_B1_2mlQWI94fqFplYC1nTaOGukjES/view?usp=drive_link). The data format corresponds to:
+
+```
+key: train
+  └── sub_key: vision
+  └── sub_key: audio
+  └── sub_key: text
+  └── sub_key: labels # three-way class
+  └── sub_key: labels_hs # fine-grained class
+  └── sub_key: labels_bin # these labels were not used for evaluation yet
+  └── sub_key: id
+key: valid
+  └── sub_key: vision
+  └── sub_key: audio
+  └── sub_key: text
+  └── sub_key: labels # three-way class
+  └── sub_key: labels_hs # fine-grained class
+  └── sub_key: labels_bin # these labels were not used for evaluation yet
+  └── sub_key: id
+key: test
+  └── sub_key: vision
+  └── sub_key: audio
+  └── sub_key: text
+  └── sub_key: labels # three-way class
+  └── sub_key: labels_hs # fine-grained class
+  └── sub_key: labels_bin # these labels were not used for evaluation yet
+  └── sub_key: id
+```
+
+
 ## Extracted Features
 
 For each video scene **T**ext, **V**ideo and **A**udio modality features were extracted. 
 
-
-
-#### Raw Video Scenes
+### Raw Video Scenes
 We provide the raw video scenes
 
 ### Text
-To obtain text modality features, audio was transcribed from the video using whisper6 (model=“medium”). Then, transcribed text was processed
-
-Whisper transcriptions
-BETO embeddings
+To obtain text modality features, audio was transcribed from the video using [whisper](https://github.com/openai/whisper.git) *(model=“medium”)*. 
+Then, transcribed text was processed with [BETO](https://huggingface.co/dccuchile/bert-base-spanish-wwm-uncased) encoder.
 
 ### Video
-
-rgb + flow 
-For the video modality, I3D representations for flow (nv ×1024) and rgb
-(nv ×1024) were obtained from each video clip [3]. 
+For the video modality, [I3D](https://v-iashin.github.io/video_features/models/i3d/) representations for flow and rgb were obtained. 
 
 ### Audio
-VGGish
+Audio features were obtained by using the [vggish](https://v-iashin.github.io/video_features/models/vggish/) pretrained model.
 
-Finally, Audio features were
-obtained by using the vggish pretrained model [9] corresponding with na × 128
-representations per video clip.
+### Temporal Dimension Processing
+We used a Long Short Term Memory (LSTM) network, followed by an AdaptiveAvgPool1d layer and a Linear fully connected (FC) layer to standardize temporal dimension n to $n = 50$ for all modalities and video clips.
 
 # Paper cite
 ´´´
+
 ´´´
