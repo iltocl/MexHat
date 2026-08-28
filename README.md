@@ -14,7 +14,7 @@ We release MexHat, a video dataset designed to capture the linguistic and cultur
   + [Instance Examples](#instance-examples)
 + [Extracted Features](#extracted-features)
 + [MexHat](#mexhat)
-+ [Paper cite](#paper-cite)
++ [Citation](#citation)
 
 ## Data Collection
 
@@ -124,9 +124,15 @@ key: test
   └── sub_key: id
 ```
 
-# Paper cite
-´´´
-.bib
-´´´
+# Citation
+```bibtex
+@misc{mexhat,
+  author = {},
+  title  = {MexHat: A Dataset for Hate Speech Detection in Mexican Spanish Videos},
+  year   = {2026},
+  howpublished = {https://github.com/iltocl/MexHat.git},
+  note   = {}
+}   
+```
 
 **Contact:** itlelo@inaoep.mx
