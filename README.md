@@ -127,7 +127,7 @@ key: test
 # Citation
 ```bibtex
 @misc{mexhat,
-  author = {},
+  author = {Itzel Tlelo-Coyotecatl and Hugo Jair Escalante},
   title  = {MexHat: A Dataset for Hate Speech Detection in Mexican Spanish Videos},
   year   = {2026},
   howpublished = {https://github.com/iltocl/MexHat.git},
